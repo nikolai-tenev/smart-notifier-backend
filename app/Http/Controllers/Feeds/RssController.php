@@ -27,9 +27,15 @@ class RssController extends Controller
 //        exit;
 
         $itemsArr = [];
+
         foreach ($jobsRss->channel->item as $item) {
+            $title = html_entity_decode(html_entity_decode($item->title->__toString()));
+            if (stripos($title, 'Do not apply') !== false) {
+                continue;
+            }
+
             $itemsArr[] = [
-                'title' => $item->title->__toString(),
+                'title' => $title,
                 'link' => $item->link->__toString(),
                 'description' => $item->description->__toString(),
                 'publishedOn' => $item->pubDate->__toString()
