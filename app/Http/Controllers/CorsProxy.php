@@ -1,18 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Feeds;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 use Illuminate\Http\JsonResponse;
 use SimpleXMLElement;
 
-class RssController extends Controller
+class CorsProxy extends Controller
 {
     private function getParsedRssFeed(string $url): JsonResponse
     {
         $client = new Client();
-
         $rssResponse = $client->get($url);
         $jobsRss = new SimpleXMLElement($rssResponse->getBody());
 
