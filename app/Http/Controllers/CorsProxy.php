@@ -41,7 +41,7 @@ class CorsProxy extends Controller
         return $this->getParsedRssFeed("https://www.upwork.com/ab/feed/jobs/rss?$queryString");
     }
 
-    public function getGuruCom(string $queryString): JsonResponse
+    public function getGuru(string $queryString): JsonResponse
     {
         return $this->getParsedRssFeed("https://www.guru.com/rss/jobs/$queryString");
     }

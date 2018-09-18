@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/feeds/rss/upwork/{queryString}', 'CorsProxy@getUpwork');
-Route::get('/feeds/rss/guru-com/{queryString}', 'CorsProxy@getGuruCom')->where(['queryString'=>'(.*)']);
+Route::get('/feeds/rss/guru/{queryString}', 'CorsProxy@getGuru')->where(['queryString'=>'(.*)']);
